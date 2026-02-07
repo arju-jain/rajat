@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elixir Hotel Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.js">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>Elixir Hotel Booking</h1>
+  <div>
+    <button onclick="openLogin()">Login</button>
+    <button onclick="openSignup()">Sign Up</button>
+  </div>
+</header>
+
+<div class="slider">
+  <div class="slides">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb">
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+  </div>
+</div>
+
+<div class="search">
+  <input id="city" placeholder="City">
+  <input id="price" type="number" placeholder="Max Price">
+  <button onclick="searchHotels()">Search</button>
+</div>
+
+<h2>🌍 Top Hotels Worldwide</h2>
+<div id="hotelList" class="hotels"></div>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <span class="close" onclick="closeLogin()">×</span>
+    <h3>Login</h3>
+    <input placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal" id="signupModal">
+  <div class="modal-box">
+    <span class="close" onclick="closeSignup()">×</span>
+    <h3>Sign Up</h3>
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="signup()">Create Account</button>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal" id="paymentModal">
+  <div class="modal-box">
+    <span class="close" onclick="closePayment()">×</span>
+    <h3>Payment</h3>
+
+    <label><input type="radio" name="payMethod" value="card" checked onchange="selectPayment()"> Card</label><br>
+    <label><input type="radio" name="payMethod" value="paypal" onchange="selectPayment()"> PayPal</label><br>
+    <label><input type="radio" name="payMethod" value="google" onchange="selectPayment()"> Google Pay</label><br>
+    <label><input type="radio" name="payMethod" value="phonepay" onchange="selectPayment()"> PhonePe</label>
+
+    <div id="cardInputs">
+      <input placeholder="Card Holder Name">
+      <input placeholder="Card Number">
+      <input placeholder="MM / YY">
+      <input placeholder="CVV">
+    </div>
+
+    <div id="otherPayments">
+      <button onclick="pay('paypal')">Pay with PayPal</button>
+      <button onclick="pay('google')">Pay with Google Pay</button>
+      <button onclick="pay('phonepay')">Pay with PhonePe</button>
+    </div>
+
+    <button id="payBtn" onclick="pay('card')">Pay Now</button>
+  </div>
+</div>
+
+
+
+</body>
+</html>
